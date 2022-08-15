@@ -19,6 +19,7 @@ public class ParkingSpotService {
         this.parkingSpotRepository = parkingSpotRepository;
     }
 
+
     @Transactional
     public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
@@ -36,8 +37,8 @@ public class ParkingSpotService {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
 
-    public Page<ParkingSpotModel> findAll(Pageable pageable) {
-        return parkingSpotRepository.findAll((org.springframework.data.domain.Pageable) pageable);
+    public List<ParkingSpotModel> findAll() {
+        return parkingSpotRepository.findAll();
     }
 
     public Optional<ParkingSpotModel> findById(UUID id) {
